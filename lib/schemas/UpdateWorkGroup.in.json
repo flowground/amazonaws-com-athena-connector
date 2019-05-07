@@ -1,0 +1,131 @@
+{
+    "type": "object",
+    "properties": {
+        "Action": {
+            "required": true,
+            "type": "string"
+        },
+        "Version": {
+            "required": true,
+            "type": "string"
+        },
+        "requestBody": {
+            "properties": {
+                "ConfigurationUpdates": {
+                    "description": "The workgroup configuration that will be updated for the given workgroup.",
+                    "properties": {
+                        "BytesScannedCutoffPerQuery": {
+                            "description": "The upper limit (cutoff) for the amount of bytes a single query in a workgroup is allowed to scan.",
+                            "minimum": 10000000,
+                            "type": "integer"
+                        },
+                        "EnforceWorkGroupConfiguration": {
+                            "description": "If set to \"true\", the settings for the workgroup override client-side settings. If set to \"false\" client-side settings are used. For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html\">Workgroup Settings Override Client-Side Settings</a>.",
+                            "type": "boolean"
+                        },
+                        "PublishCloudWatchMetricsEnabled": {
+                            "description": "Indicates whether this workgroup enables publishing metrics to Amazon CloudWatch.",
+                            "type": "boolean"
+                        },
+                        "RemoveBytesScannedCutoffPerQuery": {
+                            "description": "Indicates that the data usage control limit per query is removed. <a>WorkGroupConfiguration$BytesScannedCutoffPerQuery</a> ",
+                            "type": "boolean"
+                        },
+                        "ResultConfigurationUpdates": {
+                            "description": "The result configuration information about the queries in this workgroup that will be updated. Includes the updated results location and an updated option for encrypting query results.",
+                            "properties": {
+                                "EncryptionConfiguration": {
+                                    "description": "The encryption configuration for the query results.",
+                                    "properties": {
+                                        "EncryptionOption": {
+                                            "description": "<p>Indicates whether Amazon S3 server-side encryption with Amazon S3-managed keys (<code>SSE-S3</code>), server-side encryption with KMS-managed keys (<code>SSE-KMS</code>), or client-side encryption with KMS-managed keys (CSE-KMS) is used.</p> <p>If a query runs in a workgroup and the workgroup overrides client-side settings, then the workgroup's setting for encryption is used. It specifies whether query results must be encrypted, for all queries that run in this workgroup. </p>",
+                                            "enum": [
+                                                "SSE_S3",
+                                                "SSE_KMS",
+                                                "CSE_KMS"
+                                            ],
+                                            "type": "string"
+                                        },
+                                        "KmsKey": {
+                                            "description": "For <code>SSE-KMS</code> and <code>CSE-KMS</code>, this is the KMS key ARN or ID.",
+                                            "type": "string"
+                                        }
+                                    },
+                                    "required": [
+                                        "EncryptionOption"
+                                    ],
+                                    "type": "object"
+                                },
+                                "OutputLocation": {
+                                    "description": "The location in Amazon S3 where your query results are stored, such as <code>s3://path/to/query/bucket/</code>. For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/querying.html\">Queries and Query Result Files.</a> If workgroup settings override client-side settings, then the query uses the location for the query results and the encryption configuration that are specified for the workgroup. The \"workgroup settings override\" is specified in EnforceWorkGroupConfiguration (true/false) in the WorkGroupConfiguration. See <a>WorkGroupConfiguration$EnforceWorkGroupConfiguration</a>.",
+                                    "type": "string"
+                                },
+                                "RemoveEncryptionConfiguration": {
+                                    "description": "If set to \"true\", indicates that the previously-specified encryption configuration (also known as the client-side setting) for queries in this workgroup should be ignored and set to null. If set to \"false\" or not set, and a value is present in the EncryptionConfiguration in ResultConfigurationUpdates (the client-side setting), the EncryptionConfiguration in the workgroup's ResultConfiguration will be updated with the new value. For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html\">Workgroup Settings Override Client-Side Settings</a>.",
+                                    "type": "boolean"
+                                },
+                                "RemoveOutputLocation": {
+                                    "description": "If set to \"true\", indicates that the previously-specified query results location (also known as a client-side setting) for queries in this workgroup should be ignored and set to null. If set to \"false\" or not set, and a value is present in the OutputLocation in ResultConfigurationUpdates (the client-side setting), the OutputLocation in the workgroup's ResultConfiguration will be updated with the new value. For more information, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/workgroups-settings-override.html\">Workgroup Settings Override Client-Side Settings</a>.",
+                                    "type": "boolean"
+                                }
+                            },
+                            "type": "object"
+                        }
+                    },
+                    "type": "object"
+                },
+                "Description": {
+                    "description": "The workgroup description.",
+                    "maxLength": 1024,
+                    "minLength": 0,
+                    "type": "string"
+                },
+                "State": {
+                    "description": "The workgroup state that will be updated for the given workgroup.",
+                    "enum": [
+                        "ENABLED",
+                        "DISABLED"
+                    ],
+                    "type": "string"
+                },
+                "WorkGroup": {
+                    "description": "The specified workgroup that will be updated.",
+                    "pattern": "[a-zA-z0-9._-]{1,128}",
+                    "type": "string"
+                }
+            },
+            "required": [
+                "WorkGroup"
+            ],
+            "type": "object"
+        },
+        "X_Amz_Content_Sha256": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Date": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Algorithm": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Credential": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Security_Token": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_Signature": {
+            "required": false,
+            "type": "string"
+        },
+        "X_Amz_SignedHeaders": {
+            "required": false,
+            "type": "string"
+        }
+    }
+}

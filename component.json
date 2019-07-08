@@ -1,6 +1,6 @@
 {
     "title": "Amazon Athena",
-    "description": "<p>Amazon Athena is an interactive query service that lets you use standard SQL to analyze data directly in Amazon S3. You can point Athena at your data in Amazon S3 and run ad-hoc queries and get results in seconds. Athena is serverless, so there is no infrastructure to set up or manage. You pay only for the queries you run. Athena scales automatically--executing queries in parallel--so results are fast, even with large datasets and complex queries. For more information, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/what-is.html\">What is Amazon Athena</a> in the <i>Amazon Athena User Guide</i>.</p> <p>If you connect to Athena using the JDBC driver, use version 1.1.0 of the driver or later with the Amazon Athena API. Earlier version drivers do not support the API. For more information and to download the driver, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html\">Accessing Amazon Athena with JDBC</a>.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"https://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+    "description": "Amazon Athena is an interactive query service that lets you use standard SQL to\nanalyze data directly in Amazon S3. You can point Athena at your data in Amazon\nS3 and run ad-hoc queries and get results in seconds. Athena is serverless, so\nthere is no infrastructure to set up or manage. You pay only for the queries you\nrun. Athena scales automatically--executing queries in parallel--so results are\nfast, even with large datasets and complex queries. For more information, see \nWhat is Amazon Athena [http://docs.aws.amazon.com/athena/latest/ug/what-is.html] \nin the Amazon Athena User Guide.\n\nIf you connect to Athena using the JDBC driver, use version 1.1.0 of the driver\nor later with the Amazon Athena API. Earlier version drivers do not support the\nAPI. For more information and to download the driver, see Accessing Amazon\nAthena with JDBC\n[https://docs.aws.amazon.com/athena/latest/ug/connect-with-jdbc.html].\n\nFor code samples using the AWS SDK for Java, see Examples and Code Samples\n[https://docs.aws.amazon.com/athena/latest/ug/code-samples.html] in the Amazon\nAthena User Guide.",
     "docsUrl": "https://aws.amazon.com/athena/",
     "url": "https://api.apis.guru/v2/specs/amazonaws.com/athena/2017-05-18/swagger.json",
     "envVars": {},
@@ -20,7 +20,7 @@
                 "label": "Custom Server URL",
                 "viewClass": "TextFieldView"
             },
-            "hmac": {
+            "auth_hmac": {
                 "label": "Authorization (hmac)",
                 "viewClass": "TextFieldView",
                 "note": "Amazon Signature authorization v4"
@@ -38,7 +38,7 @@
     "actions": {
         "BatchGetNamedQuery": {
             "main": "./lib/actions/BatchGetNamedQuery.js",
-            "title": "Returns the details of a single named query or a list of up to 50 queries, which you provide as an array of query ID strings. Requires you to have access to the workgroup in which the queries were saved. Use <a>ListNamedQueriesInput</a> to get the list of named query IDs in the specified workgroup. If information could not be retrieved for a submitted query ID, information about the query ID submitted is listed under <a>UnprocessedNamedQueryId</a>. Named queries differ from executed queries. Use <a>BatchGetQueryExecutionInput</a> to get details about each unique query execution, and <a>ListQueryExecutionsInput</a> to get a list of query execution IDs.",
+            "title": "BatchGetNamedQuery",
             "description": "Returns the details of a single named query or a list of up to 50 queries, which you provide as an array of query ID strings. Requires you to have access to the workgroup in which the queries were saved. Use <a>ListNamedQueriesInput</a> to get the list of named query IDs in the specified workgroup. If information could not be retrieved for a submitted query ID, information about the query ID submitted is listed under <a>UnprocessedNamedQueryId</a>. Named queries differ from executed queries. Use <a>BatchGetQueryExecutionInput</a> to get details about each unique query execution, and <a>ListQueryExecutionsInput</a> to get a list of query execution IDs.",
             "fields": {
                 "verbose": {
@@ -55,7 +55,7 @@
         },
         "BatchGetQueryExecution": {
             "main": "./lib/actions/BatchGetQueryExecution.js",
-            "title": "Returns the details of a single query execution or a list of up to 50 query executions, which you provide as an array of query execution ID strings. Requires you to have access to the workgroup in which the queries ran. To get a list of query execution IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>. Query executions differ from named (saved) queries. Use <a>BatchGetNamedQueryInput</a> to get details about named queries.",
+            "title": "BatchGetQueryExecution",
             "description": "Returns the details of a single query execution or a list of up to 50 query executions, which you provide as an array of query execution ID strings. Requires you to have access to the workgroup in which the queries ran. To get a list of query execution IDs, use <a>ListQueryExecutionsInput$WorkGroup</a>. Query executions differ from named (saved) queries. Use <a>BatchGetNamedQueryInput</a> to get details about named queries.",
             "fields": {
                 "verbose": {
@@ -72,8 +72,8 @@
         },
         "CreateNamedQuery": {
             "main": "./lib/actions/CreateNamedQuery.js",
-            "title": "<p>Creates a named query in the specified workgroup. Requires that you have access to the workgroup.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
-            "description": "<p>Creates a named query in the specified workgroup. Requires that you have access to the workgroup.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+            "title": "CreateNamedQuery",
+            "description": "Creates a named query in the specified workgroup. Requires that you have access\nto the workgroup.\n\nFor code samples using the AWS SDK for Java, see Examples and Code Samples\n[http://docs.aws.amazon.com/athena/latest/ug/code-samples.html] in the Amazon\nAthena User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -89,7 +89,7 @@
         },
         "CreateWorkGroup": {
             "main": "./lib/actions/CreateWorkGroup.js",
-            "title": "Creates a workgroup with the specified name.",
+            "title": "CreateWorkGroup",
             "description": "Creates a workgroup with the specified name.",
             "fields": {
                 "verbose": {
@@ -106,8 +106,8 @@
         },
         "DeleteNamedQuery": {
             "main": "./lib/actions/DeleteNamedQuery.js",
-            "title": "<p>Deletes the named query if you have access to the workgroup in which the query was saved.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
-            "description": "<p>Deletes the named query if you have access to the workgroup in which the query was saved.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+            "title": "DeleteNamedQuery",
+            "description": "Deletes the named query if you have access to the workgroup in which the query\nwas saved.\n\nFor code samples using the AWS SDK for Java, see Examples and Code Samples\n[http://docs.aws.amazon.com/athena/latest/ug/code-samples.html] in the Amazon\nAthena User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -123,7 +123,7 @@
         },
         "DeleteWorkGroup": {
             "main": "./lib/actions/DeleteWorkGroup.js",
-            "title": "Deletes the workgroup with the specified name. The primary workgroup cannot be deleted.",
+            "title": "DeleteWorkGroup",
             "description": "Deletes the workgroup with the specified name. The primary workgroup cannot be deleted.",
             "fields": {
                 "verbose": {
@@ -140,7 +140,7 @@
         },
         "GetNamedQuery": {
             "main": "./lib/actions/GetNamedQuery.js",
-            "title": "Returns information about a single query. Requires that you have access to the workgroup in which the query was saved.",
+            "title": "GetNamedQuery",
             "description": "Returns information about a single query. Requires that you have access to the workgroup in which the query was saved.",
             "fields": {
                 "verbose": {
@@ -157,7 +157,7 @@
         },
         "GetQueryExecution": {
             "main": "./lib/actions/GetQueryExecution.js",
-            "title": "Returns information about a single execution of a query if you have access to the workgroup in which the query ran. Each time a query executes, information about the query execution is saved with a unique ID.",
+            "title": "GetQueryExecution",
             "description": "Returns information about a single execution of a query if you have access to the workgroup in which the query ran. Each time a query executes, information about the query execution is saved with a unique ID.",
             "fields": {
                 "verbose": {
@@ -174,7 +174,7 @@
         },
         "GetQueryResults": {
             "main": "./lib/actions/GetQueryResults.js",
-            "title": "Returns the results of a single query execution specified by <code>QueryExecutionId</code> if you have access to the workgroup in which the query ran. This request does not execute the query but returns results. Use <a>StartQueryExecution</a> to run a query.",
+            "title": "GetQueryResults",
             "description": "Returns the results of a single query execution specified by <code>QueryExecutionId</code> if you have access to the workgroup in which the query ran. This request does not execute the query but returns results. Use <a>StartQueryExecution</a> to run a query.",
             "fields": {
                 "verbose": {
@@ -191,7 +191,7 @@
         },
         "GetWorkGroup": {
             "main": "./lib/actions/GetWorkGroup.js",
-            "title": "Returns information about the workgroup with the specified name.",
+            "title": "GetWorkGroup",
             "description": "Returns information about the workgroup with the specified name.",
             "fields": {
                 "verbose": {
@@ -208,8 +208,8 @@
         },
         "ListNamedQueries": {
             "main": "./lib/actions/ListNamedQueries.js",
-            "title": "<p>Provides a list of available query IDs only for queries saved in the specified workgroup. Requires that you have access to the workgroup.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
-            "description": "<p>Provides a list of available query IDs only for queries saved in the specified workgroup. Requires that you have access to the workgroup.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+            "title": "ListNamedQueries",
+            "description": "Provides a list of available query IDs only for queries saved in the specified\nworkgroup. Requires that you have access to the workgroup.\n\nFor code samples using the AWS SDK for Java, see Examples and Code Samples\n[http://docs.aws.amazon.com/athena/latest/ug/code-samples.html] in the Amazon\nAthena User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -225,8 +225,8 @@
         },
         "ListQueryExecutions": {
             "main": "./lib/actions/ListQueryExecutions.js",
-            "title": "<p>Provides a list of available query execution IDs for the queries in the specified workgroup. Requires you to have access to the workgroup in which the queries ran.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
-            "description": "<p>Provides a list of available query execution IDs for the queries in the specified workgroup. Requires you to have access to the workgroup in which the queries ran.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+            "title": "ListQueryExecutions",
+            "description": "Provides a list of available query execution IDs for the queries in the\nspecified workgroup. Requires you to have access to the workgroup in which the\nqueries ran.\n\nFor code samples using the AWS SDK for Java, see Examples and Code Samples\n[http://docs.aws.amazon.com/athena/latest/ug/code-samples.html] in the Amazon\nAthena User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -242,7 +242,7 @@
         },
         "ListTagsForResource": {
             "main": "./lib/actions/ListTagsForResource.js",
-            "title": "Lists the tags associated with this workgroup.",
+            "title": "ListTagsForResource",
             "description": "Lists the tags associated with this workgroup.",
             "fields": {
                 "verbose": {
@@ -259,7 +259,7 @@
         },
         "ListWorkGroups": {
             "main": "./lib/actions/ListWorkGroups.js",
-            "title": "Lists available workgroups for the account.",
+            "title": "ListWorkGroups",
             "description": "Lists available workgroups for the account.",
             "fields": {
                 "verbose": {
@@ -276,8 +276,8 @@
         },
         "StartQueryExecution": {
             "main": "./lib/actions/StartQueryExecution.js",
-            "title": "<p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to have access to the workgroup in which the query ran.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
-            "description": "<p>Runs the SQL query statements contained in the <code>Query</code>. Requires you to have access to the workgroup in which the query ran.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+            "title": "StartQueryExecution",
+            "description": "Runs the SQL query statements contained in the Query. Requires you to have\naccess to the workgroup in which the query ran.\n\nFor code samples using the AWS SDK for Java, see Examples and Code Samples\n[http://docs.aws.amazon.com/athena/latest/ug/code-samples.html] in the Amazon\nAthena User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -293,8 +293,8 @@
         },
         "StopQueryExecution": {
             "main": "./lib/actions/StopQueryExecution.js",
-            "title": "<p>Stops a query execution. Requires you to have access to the workgroup in which the query ran.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
-            "description": "<p>Stops a query execution. Requires you to have access to the workgroup in which the query ran.</p> <p>For code samples using the AWS SDK for Java, see <a href=\"http://docs.aws.amazon.com/athena/latest/ug/code-samples.html\">Examples and Code Samples</a> in the <i>Amazon Athena User Guide</i>.</p>",
+            "title": "StopQueryExecution",
+            "description": "Stops a query execution. Requires you to have access to the workgroup in which\nthe query ran.\n\nFor code samples using the AWS SDK for Java, see Examples and Code Samples\n[http://docs.aws.amazon.com/athena/latest/ug/code-samples.html] in the Amazon\nAthena User Guide.",
             "fields": {
                 "verbose": {
                     "viewClass": "CheckBoxView",
@@ -310,7 +310,7 @@
         },
         "TagResource": {
             "main": "./lib/actions/TagResource.js",
-            "title": "Adds one or more tags to the resource, such as a workgroup. A tag is a label that you assign to an AWS Athena resource (a workgroup). Each tag consists of a key and an optional value, both of which you define. Tags enable you to categorize resources (workgroups) in Athena, for example, by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to search and filter workgroups in your account. For best practices, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS Tagging Strategies</a>. The key length is from 1 (minimum) to 128 (maximum) Unicode characters in UTF-8. The tag value length is from 0 (minimum) to 256 (maximum) Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you specify more than one, separate them by commas.",
+            "title": "TagResource",
             "description": "Adds one or more tags to the resource, such as a workgroup. A tag is a label that you assign to an AWS Athena resource (a workgroup). Each tag consists of a key and an optional value, both of which you define. Tags enable you to categorize resources (workgroups) in Athena, for example, by purpose, owner, or environment. Use a consistent set of tag keys to make it easier to search and filter workgroups in your account. For best practices, see <a href=\"https://aws.amazon.com/answers/account-management/aws-tagging-strategies/\">AWS Tagging Strategies</a>. The key length is from 1 (minimum) to 128 (maximum) Unicode characters in UTF-8. The tag value length is from 0 (minimum) to 256 (maximum) Unicode characters in UTF-8. You can use letters and numbers representable in UTF-8, and the following characters: + - = . _ : / @. Tag keys and values are case-sensitive. Tag keys must be unique per resource. If you specify more than one, separate them by commas.",
             "fields": {
                 "verbose": {
@@ -327,7 +327,7 @@
         },
         "UntagResource": {
             "main": "./lib/actions/UntagResource.js",
-            "title": "Removes one or more tags from the workgroup resource. Takes as an input a list of TagKey Strings separated by commas, and removes their tags at the same time.",
+            "title": "UntagResource",
             "description": "Removes one or more tags from the workgroup resource. Takes as an input a list of TagKey Strings separated by commas, and removes their tags at the same time.",
             "fields": {
                 "verbose": {
@@ -344,7 +344,7 @@
         },
         "UpdateWorkGroup": {
             "main": "./lib/actions/UpdateWorkGroup.js",
-            "title": "Updates the workgroup with the specified name. The workgroup's name cannot be changed.",
+            "title": "UpdateWorkGroup",
             "description": "Updates the workgroup with the specified name. The workgroup's name cannot be changed.",
             "fields": {
                 "verbose": {
